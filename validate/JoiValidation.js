@@ -1,4 +1,4 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 const contactSchema = Joi.object({
   name: Joi.string().min(3).required().messages({
@@ -12,6 +12,7 @@ const contactSchema = Joi.object({
     'string.empty': 'missing required phone field',
     'string.min': 'phone must be at least 10 characters'
   }),
+  favorite: Joi.boolean().optional()
 });
 
 const contactUpdateSchema = Joi.object({
@@ -24,7 +25,8 @@ const contactUpdateSchema = Joi.object({
   phone: Joi.string().min(10).messages({
     'string.min': 'phone must be at least 10 characters'
   }),
-}).or('name', 'email', 'phone').messages({
+  favorite: Joi.boolean().optional()
+}).or('name', 'email', 'phone', 'favorite').messages({
   'object.missing': 'missing fields'
 });
 
