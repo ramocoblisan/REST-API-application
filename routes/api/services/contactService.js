@@ -1,4 +1,4 @@
-import Contact from '../../../validate/DbValidation.js';
+import Contact from '../../../validate/ContactValidation.js';
 
 export async function updateStatusContact (contactId, {favorite}) {
     try{
