@@ -15,11 +15,11 @@ if (!dbConnection) {
 mongoose.connect(dbConnection)
   .then(() => {
     console.log('Connected to the database');
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
   })
   .catch((err) => {
     console.error('Database connection error:', err);
+    process.exit(1);
   });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
