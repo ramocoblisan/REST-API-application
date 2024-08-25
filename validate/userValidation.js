@@ -21,7 +21,11 @@ export const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-});
+  avatarURL: {
+    type: String,
+  },
+},
+{timestamps:true});
 
 userSchema.methods.setPassword = async function (password) {
   this.password = await bcrypt.hash(password, 10);
